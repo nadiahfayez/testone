@@ -14,14 +14,21 @@ include ("../../admin/inc/header.php");
  
 <?php 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if(isset($_POST['addpost'])){
 
-		$title = filter_input(INPUT_POST,'title', FILTER_SANITIZE_STRING);
+$title = filter_input(INPUT_POST,'title', FILTER_SANITIZE_STRING);
 $content = filter_input(INPUT_POST,'content', FILTER_SANITIZE_STRING);
 $category = filter_input(INPUT_POST,'category', FILTER_SANITIZE_STRING);
 $excerpt = filter_input(INPUT_POST,'excerpt', FILTER_SANITIZE_STRING);
 $tags = filter_input(INPUT_POST,'tags', FILTER_SANITIZE_STRING);
+$author = "Alex"; // temporary Author until creating admins
+
+
+date_default_timezone_set("Asia/Riyadh");
+$datetimeone = date( 'M-D-Y h:m' , time());
+
+
 
 
 $image= $_FILES['image'];
@@ -63,7 +70,9 @@ if(strlen($title) <100 || strlen($title) > 200 ) {
 }
 if (empty($error_msg)){
 	//insert data in database
-	
+	if(insert_post($datetimeone,$title,$content,$author,$excerpt,$img_name,$category,$tags) ){
+		echo "Success";
+	}
 }
 
 
@@ -96,12 +105,12 @@ if (empty($error_msg)){
 		<form action="post.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 			<input class="form-control" type="text" name="title" placeholder="Title" required autocomplete="off">	
-			<p class="error title-error">Title Must Be Between 500 And 10000 Characters</p>
+			<p class="error title-error">Title Must Be Between 100 And 1000 Characters</p>
 
 			</div>
 <div class="form-group">
 			<textarea required placeholder="Content" autocomplete="off"    row="6" name="content" class="form-control"></textarea>	
-			<p class=" error  content-error">Content Must Be Between 100 And 200 Characters</p>
+			<p class=" error  content-error">Content Must Be Between 100 And 1000 Characters</p>
 
 			</div>
 <div class="form-group">

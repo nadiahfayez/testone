@@ -12,7 +12,7 @@ content = $(".post form textarea[name='content']").val();
 excerpt = $(".post form input[name='excerpt']").val();
 
 
-if(title.length <50 || title.length >200){
+if(title.length <100 || title.length >1000){
 	$(".post form p.title-error").fadeIn(500);
 	return false;
 }
@@ -24,7 +24,7 @@ else{
 
 
 
-if(content.length <500 || content.length >1000){
+if(content.length <100 || content.length >1000){
 	$(".post form p.content-error").fadeIn(500);
 	return false;
 }
