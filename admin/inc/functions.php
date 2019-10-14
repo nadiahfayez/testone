@@ -15,10 +15,10 @@ return $result;
 
 
 /*Post Function*/
-function insert_post($datetimeone,$title,$content,$author,$excerpt,$image,$category,$tags)
+function insert_post($datetimeone,$title,$content,$author,$excerpt,$img_name,$category,$tags)
 {
 
-		$fields = array($datetimeone,$title,$content,$author,$excerpt,$image,$category,$tags);
+		$fields = array($datetimeone,$title,$content,$author,$excerpt,$img_name,$category,$tags);
 	include "connect.php";
 
 $sql = "INSERT INTO posts (datetime,title,content,author,excerpt,image,category,tags) VALUES(?,?,?,?,?,?,?,?) ";

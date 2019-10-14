@@ -71,10 +71,16 @@ if(strlen($title) <100 || strlen($title) > 200 ) {
 if (empty($error_msg)){
 	//insert data in database
 	if(insert_post($datetimeone,$title,$content,$author,$excerpt,$img_name,$category,$tags) ){
+		
+		if(! empty($img_name)){ 
+			$new_path = "postss/".$img_name; 
+			move_uploaded_file($img_tmp_name, $new_path);
+		}
+
 		echo "Success";
 	}
-}
 
+}
 
 }
 }
