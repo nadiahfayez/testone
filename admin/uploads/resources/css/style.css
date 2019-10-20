@@ -3,7 +3,7 @@
 /*   Global Style */
 body{
 	padding-top:40px;
-	height: 1000px;
+
 
 
 }
@@ -84,3 +84,23 @@ transition: .3s ease-in-out;
  display: none ;
 
 }
+
+.posts div table tbody td.action-links {
+	width: 130px;
+}
+
+.posts div table tbody td form  {
+	display: inline;
+}
+.posts div table tbody td.title{
+	min-width: 200px;
+}
+
+
+
+
+
+
+
+
+

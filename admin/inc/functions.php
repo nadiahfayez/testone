@@ -10,6 +10,7 @@ return $result;
 	}
 	catch(Exception $e){
 	echo "Error:". $e->getMassage();
+	return array();
 }
 }
 
@@ -40,4 +41,24 @@ catch (Exception $e) {
      return false;
         }
 }
+
+
+function get_posts(){
+	include "connect.php";
+	$sql="SELECT * FROM  posts";
+	try {
+$result =$conn->query($sql);
+return $result;
+	}
+	catch(Exception $e){
+	echo "Error:". $e->getMassage();
+		return array();
+
+}
+}
+
+
+
+
+
 ?>
